@@ -200,42 +200,8 @@ fun HomeCardTabungan(
             }
         }
 
-
-
     }
 
-//        Box(
-//            modifier = Modifier
-//                .weight(1f)
-//                .background(Color(0xFF43454F))
-//                .clip(RoundedCornerShape(15.dp))
-//        ) {
-//            Row(
-//                modifier = Modifier.fillMaxSize(),
-//            ) {
-//                Image(
-//                    painter = painterResource(id = R.drawable.baseline_add_circle_24),
-//                    contentDescription = null
-//                )
-//            }
-//        }
-//
-//        Box(
-//            modifier = Modifier
-//                .weight(1f)
-//                .background(Color(0xFFAFAEB3))
-//                .clip(RoundedCornerShape(15.dp))
-//        ) {
-//            Row(
-//                modifier = Modifier.fillMaxSize(),
-//            ) {
-//                Image(
-//                    painter = painterResource(id = R.drawable.baseline_more_horiz_24),
-//                    contentDescription = null
-//                )
-//            }
-//        }
-//    }
 
 }
 
