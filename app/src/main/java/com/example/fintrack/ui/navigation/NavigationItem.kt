@@ -28,7 +28,7 @@ var listofNavigationItem = listOf(
     ),
     NavigationItem(
         route = "transaction",
-        title = "",
+        title = "Catat",
         icon = Icons.Filled.AddCircle
     ),
     NavigationItem(

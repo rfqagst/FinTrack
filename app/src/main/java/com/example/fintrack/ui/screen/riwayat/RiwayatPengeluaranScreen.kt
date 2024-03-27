@@ -5,5 +5,5 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun RiwayatPengeluaranScreen() {
-    Text(text = "KategoriEdukasiScreen")
+    Text(text = "RiwayatPengeluaranScreen")
 }

@@ -33,7 +33,6 @@ fun FinTrackApp() {
 @Composable
 fun BottomBar(navHostController: NavHostController) {
 
-
     val navBackStackEntry by navHostController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
 
