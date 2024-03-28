@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Surface
@@ -25,9 +27,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -42,7 +47,7 @@ fun BalanceCard(
         modifier = Modifier
             .wrapContentHeight()
             .clip(RoundedCornerShape(15.dp))
-            .background(Color(0xFF1BE564)),
+            .background(Color(0xFF43454F)),
 
 
         ) {
@@ -61,28 +66,47 @@ fun BalanceCard(
                         horizontalArrangement = Arrangement.SpaceBetween,
 
                         ) {
-                        Text(text = "Jumlah uang sekarang")
+                        Text(text = "Jumlah uang sekarang", color = Color.White, fontSize = 18.sp)
                         Image(
-                            painter = painterResource(id = R.drawable.baseline_more_horiz_24),
-                            contentDescription = null
+                            imageVector = Icons.Default.MoreHoriz,
+                            contentDescription = null,
+                            colorFilter = ColorFilter.tint(androidx.compose.ui.graphics.Color.White) // Mengatur warna ikon menjadi putih
                         )
                     }
 
-                    Text(text = "Rp. 70.000")
+                    Text(
+                        text = "Rp. 70.000",
+                        color = Color.White,
+                        fontSize = 23.sp,
+                        fontWeight = FontWeight.Bold
+                    )
                 }
 
+                Spacer(modifier = Modifier.height(16.dp))
                 Row(
                     modifier = Modifier
                         .fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
                     Column {
-                        Text(text = "Pemasukan")
-                        Text(text = "Rp. 0")
+                        Text(text = "Pemasukan", color = Color.White, fontSize = 18.sp)
+                        Spacer(modifier = Modifier.height(5.dp))
+                        Text(
+                            text = "Rp. 0",
+                            color = Color.White,
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                     Column {
-                        Text(text = "Pengeluaran")
-                        Text(text = "Rp. 0")
+                        Text(text = "Pengeluaran", color = Color.White, fontSize = 18.sp)
+                        Spacer(modifier = Modifier.height(5.dp))
+                        Text(
+                            text = "Rp. 0",
+                            color = Color.White,
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
             }
@@ -143,7 +167,7 @@ fun HomeCardTabungan(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = "Tambah Tabungan",
-                        style = TextStyle(fontSize = 15.sp, color = Color.White)
+                        style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.White)
                     )
                 }
             }
@@ -192,7 +216,7 @@ fun HomeCardTabungan(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = "Tambah Tabungan",
-                        style = TextStyle(fontSize = 15.sp, color = Color.White)
+                        style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.White)
                     )
                 }
             }
@@ -211,9 +235,9 @@ fun HomeEdukasiCard() {
     ) {
         Card(
             modifier = Modifier
-                .padding(0.dp)
-                .weight(1f) // Memberikan bobot yang sama pada kedua card
-                .height(150.dp), // Atur ketinggian card sesuai kebutuhan
+                .weight(1f)
+//                .height(150.dp),
+                .wrapContentHeight(),
             shape = RoundedCornerShape(
                 15.dp,
                 15.dp,
@@ -223,46 +247,7 @@ fun HomeEdukasiCard() {
             ), // Rounded corner atas, bawah lurus
         ) {
             Column(
-                modifier = Modifier.fillMaxSize()
-            ) {
-                Image(
-                    contentScale = ContentScale.FillWidth,
-                    painter = painterResource(id = R.drawable.assurance),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(16f / 9f)
-                        .clip(
-                            RoundedCornerShape(
-                                15.dp,
-                                15.dp,
-                                0.dp,
-                                0.dp
-                                )
-                        )
-                )
-                Spacer(modifier = Modifier.height(6.dp)) // Spasi antara gambar dan teks
-                Text(
-                    text = "Pengertian Investasi: Jenis",
-                    modifier = Modifier.fillMaxWidth()
-                )
-            }
-        }
-        Card(
-            modifier = Modifier
-                .padding(0.dp)
-                .weight(1f) // Memberikan bobot yang sama pada kedua card
-                .height(150.dp), // Atur ketinggian card sesuai kebutuhan
-            shape = RoundedCornerShape(
-                15.dp,
-                15.dp,
-                10.dp,
-                10.dp
-
-                )
-        ) {
-            Column(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Image(
                     contentScale = ContentScale.FillWidth,
@@ -282,9 +267,60 @@ fun HomeEdukasiCard() {
                 )
                 Spacer(modifier = Modifier.height(6.dp)) // Spasi antara gambar dan teks
                 Text(
-                    text = "Pengertian Investasi: Jenis",
-                    modifier = Modifier.fillMaxWidth()
+                    overflow = TextOverflow.Clip,
+                    maxLines = 2,
+                    fontSize = 16.sp,
+                    text = "Pengertian Investasi: Jeniswdwdwdwdwdwdwdwssssssss",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 5.dp, end = 5.dp),
                 )
+                Spacer(modifier = Modifier.height(12.dp))
+            }
+        }
+        Card(
+            modifier = Modifier
+                .weight(1f)
+//                .height(150.dp),
+                .wrapContentHeight(),
+            shape = RoundedCornerShape(
+                15.dp,
+                15.dp,
+                10.dp,
+                10.dp
+
+            ), // Rounded corner atas, bawah lurus
+        ) {
+            Column(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Image(
+                    contentScale = ContentScale.FillWidth,
+                    painter = painterResource(id = R.drawable.assurance),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(16f / 9f)
+                        .clip(
+                            RoundedCornerShape(
+                                15.dp,
+                                15.dp,
+                                0.dp,
+                                0.dp
+                            )
+                        )
+                )
+                Spacer(modifier = Modifier.height(6.dp)) // Spasi antara gambar dan teks
+                Text(
+                    overflow = TextOverflow.Clip,
+                    maxLines = 2,
+                    fontSize = 16.sp,
+                    text = "Pengertian Investasi: Jeniswdwdwdwdwdwdwdwssssssss",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 5.dp,end = 5.dp),
+                )
+                Spacer(modifier = Modifier.height(12.dp))
             }
         }
     }
@@ -297,7 +333,7 @@ fun HomeEdukasiCard() {
 fun CardPreview() {
 //    BalanceCard(modifier = Modifier)
     Surface(modifier = Modifier.fillMaxSize()) {
-        HomeEdukasiCard()
+        HomeCardTabungan()
     }
 
 }

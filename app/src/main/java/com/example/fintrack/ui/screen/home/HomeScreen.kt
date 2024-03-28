@@ -12,14 +12,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.fintrack.R
 import com.example.fintrack.ui.components.BalanceCard
 import com.example.fintrack.ui.components.HomeCardTabungan
@@ -30,76 +32,77 @@ import com.example.fintrack.ui.components.HomeEdukasiCard
 fun HomeScreen(
 //    name: String
 ) {
-    Surface(
+
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Row(
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.profile),
+                contentDescription = "Profile Image",
                 modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.profile),
-                    contentDescription = "Profile Image",
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(CircleShape)
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Column(modifier = Modifier) {
-                    Text(text = "Bonjourr")
-                    Text(text = "Rifqi Agustia")
-                }
-            }
-            Spacer(modifier = Modifier.height(16.dp))
-
-            BalanceCard(
-                modifier = Modifier
-
+                    .size(50.dp)
+                    .clip(CircleShape)
             )
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Column(modifier = Modifier) {
-                Row(
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(text = "Tabungan")
-                    Text(text = "Lihat Semua")
-                }
-                HomeCardTabungan()
+            Spacer(modifier = Modifier.width(8.dp))
+            Column(modifier = Modifier, verticalArrangement = Arrangement.Center) {
+                Text(text = "Bonjourr", fontSize = 18.sp)
+                Text(text = "Rifqi Agustia", fontSize = 18.sp, fontWeight = FontWeight.Bold)
             }
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Column(modifier = Modifier) {
-                Row(
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(text = "Edukasi")
-                    Text(text = "Lihat Semua")
-                }
-                HomeEdukasiCard()
-            }
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Column(modifier = Modifier) {
-                Row(
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(text = "Transaksi Terakhir")
-                    Text(text = "Lihat Semua")
-                }
-            }
-            Spacer(modifier = Modifier.height(16.dp))
-
-
-
-
         }
+        Spacer(modifier = Modifier.height(41.dp))
+
+        BalanceCard(
+            modifier = Modifier
+
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Column(modifier = Modifier) {
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text(text = "Tabungan", fontSize = 21.sp, fontWeight = FontWeight.Bold)
+                Text(text = "Lihat Semua", fontSize = 16.sp)
+            }
+            Spacer(modifier = Modifier.height(11.dp))
+            HomeCardTabungan()
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Column(modifier = Modifier) {
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = "Edukasi", fontSize = 21.sp, fontWeight = FontWeight.Bold)
+                Text(text = "Lihat Semua", fontSize = 16.sp)
+            }
+            Spacer(modifier = Modifier.height(11.dp))
+            HomeEdukasiCard()
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Column(modifier = Modifier) {
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = "Transaksi Terakhir", fontSize = 21.sp, fontWeight = FontWeight.Bold)
+                Text(text = "Lihat Semua", fontSize = 16.sp)
+            }
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+
 
     }
 
