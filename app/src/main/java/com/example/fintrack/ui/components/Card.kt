@@ -7,14 +7,17 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,23 +39,20 @@ fun BalanceCard(
     modifier: Modifier
 ) {
     Column(
-        modifier = modifier
-            .padding(16.dp)
-//            .width(327.dp)
-            .height(150.dp)
-            .fillMaxWidth()
+        modifier = Modifier
+            .wrapContentHeight()
             .clip(RoundedCornerShape(15.dp))
-            .background(Color(0xFF1BE564))
-    ) {
+            .background(Color(0xFF1BE564)),
+
+
+        ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxSize(),
-                verticalArrangement = Arrangement.SpaceBetween
+                modifier = Modifier,
             ) {
                 Column {
                     Row(
@@ -92,12 +92,10 @@ fun BalanceCard(
 
 @Composable
 fun HomeCardTabungan(
-    modifier: Modifier
 ) {
     Row(
-        modifier = modifier
-            .padding(16.dp)
-            .height(130.dp)
+        modifier = Modifier
+            .height(100.dp)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
@@ -201,7 +199,95 @@ fun HomeCardTabungan(
         }
 
     }
+}
 
+
+@Composable
+fun HomeEdukasiCard() {
+
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(16.dp) // Spasi antara dua card
+    ) {
+        Card(
+            modifier = Modifier
+                .padding(0.dp)
+                .weight(1f) // Memberikan bobot yang sama pada kedua card
+                .height(150.dp), // Atur ketinggian card sesuai kebutuhan
+            shape = RoundedCornerShape(
+                15.dp,
+                15.dp,
+                10.dp,
+                10.dp
+
+            ), // Rounded corner atas, bawah lurus
+        ) {
+            Column(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                Image(
+                    contentScale = ContentScale.FillWidth,
+                    painter = painterResource(id = R.drawable.assurance),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(16f / 9f)
+                        .clip(
+                            RoundedCornerShape(
+                                15.dp,
+                                15.dp,
+                                0.dp,
+                                0.dp
+                                )
+                        )
+                )
+                Spacer(modifier = Modifier.height(6.dp)) // Spasi antara gambar dan teks
+                Text(
+                    text = "Pengertian Investasi: Jenis",
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+        }
+        Card(
+            modifier = Modifier
+                .padding(0.dp)
+                .weight(1f) // Memberikan bobot yang sama pada kedua card
+                .height(150.dp), // Atur ketinggian card sesuai kebutuhan
+            shape = RoundedCornerShape(
+                15.dp,
+                15.dp,
+                10.dp,
+                10.dp
+
+                )
+        ) {
+            Column(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                Image(
+                    contentScale = ContentScale.FillWidth,
+                    painter = painterResource(id = R.drawable.assurance),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(16f / 9f)
+                        .clip(
+                            RoundedCornerShape(
+                                15.dp,
+                                15.dp,
+                                0.dp,
+                                0.dp
+                            )
+                        )
+                )
+                Spacer(modifier = Modifier.height(6.dp)) // Spasi antara gambar dan teks
+                Text(
+                    text = "Pengertian Investasi: Jenis",
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+        }
+    }
 
 }
 
@@ -209,5 +295,9 @@ fun HomeCardTabungan(
 @Composable
 @Preview(showBackground = true)
 fun CardPreview() {
-    HomeCardTabungan(modifier = Modifier)
+//    BalanceCard(modifier = Modifier)
+    Surface(modifier = Modifier.fillMaxSize()) {
+        HomeEdukasiCard()
+    }
+
 }
