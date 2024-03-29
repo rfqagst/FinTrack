@@ -36,7 +36,7 @@ fun TambahPengeluaranScreen() {
         Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(15.dp))
-                .background(color = Color.LightGray)
+                .background(color = Color(0xFFFFFFFF))
 
         ) {
             Column(

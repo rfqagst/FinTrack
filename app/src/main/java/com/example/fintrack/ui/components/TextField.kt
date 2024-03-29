@@ -62,7 +62,7 @@ fun NormalTextField(
 
             colors = OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = Color(0xFF1BE063),
-                unfocusedBorderColor = Color(0xFFAFAEB3),
+                unfocusedBorderColor = Color(0xFF949398),
             ),
             textStyle = TextStyle(fontSize = 16.sp, fontWeight = FontWeight(400)),
             shape = RoundedCornerShape(10.dp),

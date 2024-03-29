@@ -141,7 +141,7 @@ fun HomeCardEdukasi(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color.LightGray
+            containerColor = Color(0xFFFFFFFF)
         ),
         modifier = modifier
             .fillMaxWidth()
@@ -242,7 +242,7 @@ fun CardTransaksi(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color.LightGray
+            containerColor = Color(0xFFFFFFFF)
         ),
         modifier = modifier,
         shape = RoundedCornerShape(7.dp)
