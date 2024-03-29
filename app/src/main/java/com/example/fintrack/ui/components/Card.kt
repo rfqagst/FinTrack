@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -249,10 +250,10 @@ fun CardTransaksi(
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth().padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-            , verticalAlignment = Alignment.CenterVertically
-            ,
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Row() {
                 Image(
@@ -300,12 +301,76 @@ fun CardTransaksi(
     }
 }
 
+
+@Composable
+fun CardTabunganKondisi2(modifier: Modifier) {
+    Card(
+        modifier = modifier,
+        border = BorderStroke(
+            width = 1.dp,
+            color = Color(0xFFBEBEBE)
+        ),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Transparent,
+        ),
+
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                Text(
+                    text = "Macbook",
+                    style = TextStyle(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight(400),
+                        color = Color(0xFF43454F),
+                    ), textAlign = TextAlign.End
+
+                )
+            }
+            Text(
+                text = "Rp. 33.000 ",
+                style = TextStyle(
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight(700),
+                    color = Color(0xFF43454F),
+                )
+            )
+            Row {
+                Text(
+                    text = "Target",
+                    style = TextStyle(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight(700),
+                        color = Color(0xFF43454F),
+
+                        )
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(
+                    text = "Rp. 12.000.000",
+                    style = TextStyle(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight(400),
+                        color = Color(0xFF43454F)
+                    )
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun CardBannerTabungan() {
+
+}
+
+
 @Composable
 @Preview(showBackground = true)
 fun CardPreview() {
 //    BalanceCard(modifier = Modifier)
-    Surface() {
-        BalanceCard(modifier = Modifier.wrapContentHeight())
+    Surface(modifier = Modifier.fillMaxSize()) {
+        CardTabunganKondisi2(modifier = Modifier.wrapContentHeight())
     }
 
 }
