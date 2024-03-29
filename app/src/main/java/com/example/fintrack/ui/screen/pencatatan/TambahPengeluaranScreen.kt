@@ -42,10 +42,6 @@ fun TambahPengeluaranScreen() {
             NormalTextField(text = "Jenis Pembayaran")
             NormalTextField(text = "Nominal Transaksi")
             NormalTextField(text = "Keterangan Transaksi")
-            NormalTextField(text = "Keterangan Transaksi")
-            NormalTextField(text = "Keterangan Transaksi")
-            NormalTextField(text = "Keterangan Transaksi")
-            NormalTextField(text = "Keterangan Transaksi")
             Spacer(modifier = Modifier.height(24.dp))
             ButtonUtama(onClick = { /*TODO*/ }, text = "Tambah Pengeluaran" )
         }
