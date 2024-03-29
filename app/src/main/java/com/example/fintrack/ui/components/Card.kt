@@ -1,5 +1,6 @@
 package com.example.fintrack.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -32,6 +33,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -45,66 +47,88 @@ fun BalanceCard(
 ) {
     Column(
         modifier = Modifier
-            .wrapContentHeight()
-            .clip(RoundedCornerShape(15.dp))
-            .background(Color(0xFF43454F)),
 
 
-        ) {
+    ) {
         Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
+            modifier = modifier
+                .clip(RoundedCornerShape(15.dp))
+                .background(Color(0xFF43454F))
+                .width(327.dp)
+                .height(150.dp)
+
         ) {
-            Column(
-                modifier = Modifier,
-            ) {
-                Column {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
+            Column(modifier = Modifier.padding(16.dp)) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
 
-                        ) {
-                        Text(text = "Jumlah uang sekarang", color = Color.White, fontSize = 18.sp)
-                        Image(
-                            imageVector = Icons.Default.MoreHoriz,
-                            contentDescription = null,
-                            colorFilter = ColorFilter.tint(androidx.compose.ui.graphics.Color.White) // Mengatur warna ikon menjadi putih
-                        )
-                    }
-
+                    ) {
                     Text(
-                        text = "Rp. 70.000",
-                        color = Color.White,
-                        fontSize = 23.sp,
-                        fontWeight = FontWeight.Bold
+                        text = "Jumlah uang sekarang",
+                        style = TextStyle(
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight(400),
+                            color = Color(0xFFFFFFFF),
+
+                            )
+                    )
+                    Image(
+                        imageVector = Icons.Default.MoreHoriz,
+                        contentDescription = null,
+                        colorFilter = ColorFilter.tint(Color.White)
                     )
                 }
+
+                Text(
+                    text = "Rp. 70.000",
+                    style = TextStyle(
+                        fontSize = 30.sp,
+                        fontWeight = FontWeight(700),
+                        color = Color(0xFFFFFFFF),
+                    )
+                )
 
                 Spacer(modifier = Modifier.height(16.dp))
                 Row(
                     modifier = Modifier
                         .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
+                    horizontalArrangement = Arrangement.SpaceAround,
                 ) {
-                    Column {
-                        Text(text = "Pemasukan", color = Color.White, fontSize = 18.sp)
-                        Spacer(modifier = Modifier.height(5.dp))
+                    Row {
+                        Image(
+                            painter = painterResource(id = R.drawable.profile),
+                            contentDescription = null,
+                            Modifier
+                                .padding(0.dp)
+                                .width(25.dp)
+                                .height(25.dp)
+                        )
+                        Spacer(modifier = Modifier.width(10.dp))
                         Text(
                             text = "Rp. 0",
                             color = Color.White,
-                            fontSize = 18.sp,
+                            fontSize = 20.sp,
                             fontWeight = FontWeight.Bold
                         )
                     }
-                    Column {
-                        Text(text = "Pengeluaran", color = Color.White, fontSize = 18.sp)
-                        Spacer(modifier = Modifier.height(5.dp))
+
+                    Spacer(modifier = Modifier.height(5.dp))
+                    Row {
+                        Image(
+                            painter = painterResource(id = R.drawable.profile),
+                            contentDescription = null,
+                            Modifier
+                                .padding(0.dp)
+                                .width(25.dp)
+                                .height(25.dp)
+                        )
+                        Spacer(modifier = Modifier.width(10.dp))
                         Text(
                             text = "Rp. 0",
                             color = Color.White,
-                            fontSize = 18.sp,
+                            fontSize = 20.sp,
                             fontWeight = FontWeight.Bold
                         )
                     }
@@ -167,7 +191,11 @@ fun HomeCardTabungan(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = "Tambah Tabungan",
-                        style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.White)
+                        style = TextStyle(
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
                     )
                 }
             }
@@ -216,7 +244,11 @@ fun HomeCardTabungan(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = "Tambah Tabungan",
-                        style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.White)
+                        style = TextStyle(
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
                     )
                 }
             }
@@ -318,7 +350,7 @@ fun HomeEdukasiCard() {
                     text = "Pengertian Investasi: Jeniswdwdwdwdwdwdwdwssssssss",
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = 5.dp,end = 5.dp),
+                        .padding(start = 5.dp, end = 5.dp),
                 )
                 Spacer(modifier = Modifier.height(12.dp))
             }
@@ -327,13 +359,113 @@ fun HomeEdukasiCard() {
 
 }
 
+@Composable
+fun HomeCardEdukasi2(
+    modifier: Modifier
+) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = Color.LightGray
+        ),
+        modifier = modifier
+            .fillMaxWidth()
+            .width(153.dp)
+            .height(43.dp),
+        shape = RoundedCornerShape(7.dp)
+
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Start,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(start = 10.dp)
+                .height(43.dp)
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.profile),
+                contentDescription = null,
+                Modifier
+                    .padding(0.dp)
+                    .width(27.dp)
+                    .height(27.dp)
+            )
+            Spacer(modifier = Modifier.width(20.dp))
+            Text(
+                text = "Asuransi", style = TextStyle(
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight(600),
+                    color = Color(0xFF000000),
+
+                    )
+            )
+        }
+    }
+}
+
+@Composable
+fun CardTabunganKondisi1(
+    modifier: Modifier
+) {
+    Card(
+        modifier = modifier
+            .width(324.dp)
+            .height(90.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.White
+        ),
+        shape = RoundedCornerShape(10.dp),
+        border = BorderStroke(width = 1.dp, color = Color(0xFFD9D7DE))
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Start,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.profile),
+                contentDescription = null,
+                Modifier
+                    .padding(0.dp)
+                    .width(77.dp)
+                    .height(57.dp)
+            )
+            Column {
+                Text(
+                    text = "Yuk, Rencanakan masa depan",
+
+                    style = TextStyle(
+                        fontSize = 16.sp,
+                        lineHeight = 20.sp,
+                        fontWeight = FontWeight(400),
+                        color = Color(0xFF000000),
+
+                        letterSpacing = 0.25.sp,
+                    )
+                )
+                Text(
+                    text = "Mulai buat rencana tabungan ",
+                    style = TextStyle(
+                        fontSize = 16.sp,
+                        lineHeight = 20.sp,
+                        fontWeight = FontWeight(700),
+                        color = Color(0xFF000000),
+                        textDecoration = TextDecoration.Underline,
+                        letterSpacing = 0.25.sp,
+                    )
+                )
+            }
+        }
+
+    }
+}
 
 @Composable
 @Preview(showBackground = true)
 fun CardPreview() {
 //    BalanceCard(modifier = Modifier)
-    Surface(modifier = Modifier.fillMaxSize()) {
-        HomeCardTabungan()
+    Surface() {
+        BalanceCard(modifier = Modifier.wrapContentHeight())
     }
 
 }

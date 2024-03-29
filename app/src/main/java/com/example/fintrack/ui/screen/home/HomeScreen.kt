@@ -24,13 +24,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fintrack.R
 import com.example.fintrack.ui.components.BalanceCard
+import com.example.fintrack.ui.components.CardTabunganKondisi1
+import com.example.fintrack.ui.components.HomeCardEdukasi2
 import com.example.fintrack.ui.components.HomeCardTabungan
 import com.example.fintrack.ui.components.HomeEdukasiCard
 
 
 @Composable
 fun HomeScreen(
-//    name: String
 ) {
 
     Column(
@@ -51,15 +52,14 @@ fun HomeScreen(
             )
             Spacer(modifier = Modifier.width(8.dp))
             Column(modifier = Modifier, verticalArrangement = Arrangement.Center) {
-                Text(text = "Bonjourr", fontSize = 18.sp)
+                Text(text = "Bonjou", fontSize = 18.sp)
                 Text(text = "Rifqi Agustia", fontSize = 18.sp, fontWeight = FontWeight.Bold)
             }
         }
-        Spacer(modifier = Modifier.height(41.dp))
+        Spacer(modifier = Modifier.height(31.dp))
 
         BalanceCard(
-            modifier = Modifier
-
+            modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -73,7 +73,7 @@ fun HomeScreen(
                 Text(text = "Lihat Semua", fontSize = 16.sp)
             }
             Spacer(modifier = Modifier.height(11.dp))
-            HomeCardTabungan()
+            CardTabunganKondisi1(modifier = Modifier.fillMaxWidth())
         }
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -87,7 +87,27 @@ fun HomeScreen(
                 Text(text = "Lihat Semua", fontSize = 16.sp)
             }
             Spacer(modifier = Modifier.height(11.dp))
-            HomeEdukasiCard()
+            Row {
+                HomeCardEdukasi2(modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f))
+                Spacer(modifier = Modifier.width(16.dp))
+                HomeCardEdukasi2(modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f))
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Row {
+                HomeCardEdukasi2(modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f))
+                Spacer(modifier = Modifier.width(16.dp))
+                HomeCardEdukasi2(modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f))
+            }
+
         }
         Spacer(modifier = Modifier.height(16.dp))
 
