@@ -1,5 +1,7 @@
 package com.example.fintrack.ui.components
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,6 +24,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -30,33 +33,39 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fintrack.R
 
+
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun NormalTextField(
     text: String,
 ) {
-    Column(
-        modifier = Modifier.fillMaxWidth()
-    ) {
+    Column() {
         var normalText by rememberSaveable {
             mutableStateOf("")
         }
-        Text(text = text, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+        Text(text = text, style = TextStyle(
+            fontSize = 16.sp,
+            fontWeight = FontWeight(700),
+            color = Color(0xFF121417),
+
+            ))
         Spacer(modifier = Modifier.height(6.dp))
         OutlinedTextField(
-
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp)
+            ,
             value = normalText,
             onValueChange = {
                 normalText = it
             },
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-            ,
+
             colors = OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = Color(0xFF1BE063),
                 unfocusedBorderColor = Color(0xFFAFAEB3),
             ),
-            shape = RoundedCornerShape(10.dp)
+            textStyle = TextStyle(fontSize = 16.sp, fontWeight = FontWeight(400)),
+            shape = RoundedCornerShape(10.dp),
         )
         Spacer(modifier = Modifier.height(10.dp))
     }

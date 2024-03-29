@@ -1,5 +1,7 @@
 package com.example.fintrack.ui.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -12,6 +14,7 @@ import com.example.fintrack.ui.screen.riwayat.RiwayatPengeluaranScreen
 import com.example.fintrack.ui.screen.tabungan.ListTabunganScreen
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun BottomNavGraph(navController: NavHostController,modifier: Modifier) {
     NavHost(navController = navController, startDestination = BottomBarScreen.Home.route) {
