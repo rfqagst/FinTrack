@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,9 +26,8 @@ import androidx.compose.ui.unit.sp
 import com.example.fintrack.R
 import com.example.fintrack.ui.components.BalanceCard
 import com.example.fintrack.ui.components.CardTabunganKondisi1
-import com.example.fintrack.ui.components.HomeCardEdukasi2
-import com.example.fintrack.ui.components.HomeCardTabungan
-import com.example.fintrack.ui.components.HomeEdukasiCard
+import com.example.fintrack.ui.components.CardTransaksi
+import com.example.fintrack.ui.components.HomeCardEdukasi
 
 
 @Composable
@@ -88,22 +88,22 @@ fun HomeScreen(
             }
             Spacer(modifier = Modifier.height(11.dp))
             Row {
-                HomeCardEdukasi2(modifier = Modifier
+                HomeCardEdukasi(modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f))
                 Spacer(modifier = Modifier.width(16.dp))
-                HomeCardEdukasi2(modifier = Modifier
+                HomeCardEdukasi(modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f))
             }
             Spacer(modifier = Modifier.height(16.dp))
 
             Row {
-                HomeCardEdukasi2(modifier = Modifier
+                HomeCardEdukasi(modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f))
                 Spacer(modifier = Modifier.width(16.dp))
-                HomeCardEdukasi2(modifier = Modifier
+                HomeCardEdukasi(modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f))
             }
@@ -122,6 +122,10 @@ fun HomeScreen(
             }
         }
         Spacer(modifier = Modifier.height(16.dp))
+        
+        CardTransaksi(modifier = Modifier.fillMaxWidth())
+        Spacer(modifier = Modifier.height(13.dp))
+        CardTransaksi(modifier = Modifier.fillMaxWidth())
 
 
     }

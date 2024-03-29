@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -25,16 +24,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -139,228 +135,7 @@ fun BalanceCard(
 }
 
 @Composable
-fun HomeCardTabungan(
-) {
-    Row(
-        modifier = Modifier
-            .height(100.dp)
-            .fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-
-        Card(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxSize(),
-            colors = CardDefaults.cardColors(
-                containerColor = Color(0xFF43454F)
-            )
-
-        ) {
-
-            Box(modifier = Modifier.fillMaxWidth()) {
-                Image(
-
-                    painter = painterResource(id = R.drawable.vector22),
-                    contentDescription = null,
-                    contentScale = ContentScale.FillHeight,
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(start = 50.dp)
-                        .alpha(0.15f)
-
-                )
-
-                Row(
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxSize()
-                        .fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Image(
-                        modifier = Modifier
-                            .width(45.dp)
-                            .height(45.dp),
-                        painter = painterResource(id = R.drawable.baseline_add_circle_24),
-                        contentDescription = null
-
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "Tambah Tabungan",
-                        style = TextStyle(
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.White
-                        )
-                    )
-                }
-            }
-        }
-
-        Spacer(modifier = Modifier.width(16.dp))
-        Card(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxSize(),
-            colors = CardDefaults.cardColors(
-                containerColor = Color(0xFF43454F)
-            )
-
-        ) {
-
-            Box(modifier = Modifier.fillMaxWidth()) {
-                Image(
-
-                    painter = painterResource(id = R.drawable.vector22),
-                    contentDescription = null,
-                    contentScale = ContentScale.FillHeight,
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(start = 50.dp)
-                        .alpha(0.15f)
-
-                )
-
-                Row(
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxSize()
-                        .fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Image(
-                        modifier = Modifier
-                            .width(45.dp)
-                            .height(45.dp),
-                        painter = painterResource(id = R.drawable.baseline_add_circle_24),
-                        contentDescription = null
-
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "Tambah Tabungan",
-                        style = TextStyle(
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.White
-                        )
-                    )
-                }
-            }
-        }
-
-    }
-}
-
-
-@Composable
-fun HomeEdukasiCard() {
-
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(16.dp) // Spasi antara dua card
-    ) {
-        Card(
-            modifier = Modifier
-                .weight(1f)
-//                .height(150.dp),
-                .wrapContentHeight(),
-            shape = RoundedCornerShape(
-                15.dp,
-                15.dp,
-                10.dp,
-                10.dp
-
-            ), // Rounded corner atas, bawah lurus
-        ) {
-            Column(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Image(
-                    contentScale = ContentScale.FillWidth,
-                    painter = painterResource(id = R.drawable.assurance),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(16f / 9f)
-                        .clip(
-                            RoundedCornerShape(
-                                15.dp,
-                                15.dp,
-                                0.dp,
-                                0.dp
-                            )
-                        )
-                )
-                Spacer(modifier = Modifier.height(6.dp)) // Spasi antara gambar dan teks
-                Text(
-                    overflow = TextOverflow.Clip,
-                    maxLines = 2,
-                    fontSize = 16.sp,
-                    text = "Pengertian Investasi: Jeniswdwdwdwdwdwdwdwssssssss",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 5.dp, end = 5.dp),
-                )
-                Spacer(modifier = Modifier.height(12.dp))
-            }
-        }
-        Card(
-            modifier = Modifier
-                .weight(1f)
-//                .height(150.dp),
-                .wrapContentHeight(),
-            shape = RoundedCornerShape(
-                15.dp,
-                15.dp,
-                10.dp,
-                10.dp
-
-            ), // Rounded corner atas, bawah lurus
-        ) {
-            Column(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Image(
-                    contentScale = ContentScale.FillWidth,
-                    painter = painterResource(id = R.drawable.assurance),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(16f / 9f)
-                        .clip(
-                            RoundedCornerShape(
-                                15.dp,
-                                15.dp,
-                                0.dp,
-                                0.dp
-                            )
-                        )
-                )
-                Spacer(modifier = Modifier.height(6.dp)) // Spasi antara gambar dan teks
-                Text(
-                    overflow = TextOverflow.Clip,
-                    maxLines = 2,
-                    fontSize = 16.sp,
-                    text = "Pengertian Investasi: Jeniswdwdwdwdwdwdwdwssssssss",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 5.dp, end = 5.dp),
-                )
-                Spacer(modifier = Modifier.height(12.dp))
-            }
-        }
-    }
-
-}
-
-@Composable
-fun HomeCardEdukasi2(
+fun HomeCardEdukasi(
     modifier: Modifier
 ) {
     Card(
@@ -457,6 +232,71 @@ fun CardTabunganKondisi1(
             }
         }
 
+    }
+}
+
+@Composable
+fun CardTransaksi(
+    modifier: Modifier
+) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = Color.LightGray
+        ),
+        modifier = modifier,
+        shape = RoundedCornerShape(7.dp)
+
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth().padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
+            , verticalAlignment = Alignment.CenterVertically
+            ,
+        ) {
+            Row() {
+                Image(
+                    painter = painterResource(id = R.drawable.profile),
+                    contentDescription = null,
+                    Modifier
+                        .padding(0.dp)
+                        .width(30.dp)
+                        .height(30.dp)
+                )
+
+                Spacer(modifier = Modifier.width(10.dp))
+                Column {
+                    Text(
+                        text = "Tiket Konser JKT48",
+                        style = TextStyle(
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight(700),
+                            color = Color(0xFF121417),
+                        )
+                    )
+
+                    Text(
+                        text = "Cash",
+                        style = TextStyle(
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight(400),
+                            color = Color(0xFF121417),
+
+                            )
+                    )
+                }
+
+            }
+            Text(
+                text = "Rp. 600.000",
+                style = TextStyle(
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight(700),
+                    color = Color(0xFFD83535),
+
+                    )
+            )
+        }
     }
 }
 
