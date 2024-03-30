@@ -1,19 +1,13 @@
 package com.example.fintrack.ui.components
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -28,7 +22,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -37,126 +30,47 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fintrack.R
 
-
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun NormalTextField(
     text: String,
 ) {
-    Column() {
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
         var normalText by rememberSaveable {
             mutableStateOf("")
         }
-        Text(
-            text = text, style = TextStyle(
-                fontSize = 16.sp,
-                fontWeight = FontWeight(700),
-                color = Color(0xFF121417),
-            )
-        )
+        Text(text = text, fontFamily = Plus_Jakarta_Sans,
+            fontWeight = FontWeight(700),
+            fontSize = 14.sp,
+            color = Color(0xFF121417))
         Spacer(modifier = Modifier.height(6.dp))
         OutlinedTextField(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp),
+
             value = normalText,
             onValueChange = {
                 normalText = it
             },
-
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(45.dp)
+            ,
             colors = OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = Color(0xFF1BE063),
-                unfocusedBorderColor = Color(0xFF949398),
+                unfocusedBorderColor = Color(0xFFAFAEB3),
             ),
-            textStyle = TextStyle(fontSize = 16.sp, fontWeight = FontWeight(400)),
-            shape = RoundedCornerShape(10.dp),
+            shape = RoundedCornerShape(10.dp)
         )
         Spacer(modifier = Modifier.height(10.dp))
     }
 }
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun DropDownField(text: String) {
-    val listPembayaran = listOf("Cash", "Debit", "E-Wallet")
-    val listKategoriPengeluaran =
-        listOf("Hiburan", "Makanan", "Pendidikan", "Obat-Obatan", "Kosmetik")
-    val listKategoriPemasukan = listOf("Gaji", "Pemberian", "Dana Pensiun")
-
-    var isExpanded by remember {
-        mutableStateOf(false)
-    }
-    var selectedPembayaran by remember { mutableStateOf(listPembayaran[0]) }
-
-    Column {
-        Text(
-            text = text, style = TextStyle(
-                fontSize = 16.sp,
-                fontWeight = FontWeight(700),
-                color = Color(0xFF121417),
-            )
-        )
-        Spacer(modifier = Modifier.height(6.dp))
-
-
-        ExposedDropdownMenuBox(
-            expanded = isExpanded,
-            onExpandedChange = { isExpanded = !isExpanded }) {
-
-            OutlinedTextField(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp)
-                    .menuAnchor(),
-                value = selectedPembayaran,
-                onValueChange = { },
-                readOnly = true,
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = Color(0xFF1BE063),
-                    unfocusedBorderColor = Color(0xFF949398),
-                ),
-                textStyle = TextStyle(fontSize = 16.sp, fontWeight = FontWeight(400)),
-                shape = RoundedCornerShape(10.dp),
-                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = isExpanded) }
-
-
-            )
-
-            ExposedDropdownMenu(expanded = isExpanded, onDismissRequest = { isExpanded = false }) {
-                listPembayaran.forEachIndexed { index, text ->
-                    DropdownMenuItem(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(color = Color(0xFFFFFFFF)),
-                        text = { Text(text = text, style = TextStyle(fontSize = 16.sp, fontWeight = FontWeight(400))) },
-                        onClick = {
-                            selectedPembayaran = listPembayaran[index]
-                            isExpanded = false
-
-                        },
-                        contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding
-
-                    )
-                }
-
-            }
-        }
-
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-    }
-
-
-}
-
 
 @Composable
 fun PasswordField(
     text: String
 ) {
     Column(
-        modifier = Modifier.fillMaxSize()
+        //modifier = Modifier.fillMaxWidth()
     ) {
         var password by rememberSaveable {
             mutableStateOf("")
@@ -172,7 +86,10 @@ fun PasswordField(
             painterResource(id = R.drawable.baseline_visibility_off_24)
 
 
-        Text(text = "Password")
+        Text(text = text, fontFamily = Plus_Jakarta_Sans,
+            fontWeight = FontWeight(700),
+            fontSize = 14.sp,
+            color = Color(0xFF121417))
         Spacer(modifier = Modifier.height(6.dp))
         OutlinedTextField(
             value = password,
@@ -181,9 +98,8 @@ fun PasswordField(
                 .height(45.dp)
                 .width(290.dp),
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color.Transparent,
-                focusedBorderColor = Color(0xFFAFAEB3),
-                unfocusedBorderColor = Color(0xFF1BE063),
+                focusedBorderColor = Color(0xFF1BE063),
+                unfocusedBorderColor = Color(0xFFAFAEB3),
 
                 ),
             shape = RoundedCornerShape(10.dp),
@@ -199,6 +115,7 @@ fun PasswordField(
 
 
         )
+        Spacer(modifier = Modifier.height(10.dp))
     }
 }
 
@@ -206,5 +123,6 @@ fun PasswordField(
 @Preview(showBackground = true)
 @Composable
 fun PrevDefault() {
-    DropDownField(text = "Pilih Metode Pembayaran")//    PasswordField("Password")
+    //NormalTextField("Email")
+    PasswordField("Password")
 }

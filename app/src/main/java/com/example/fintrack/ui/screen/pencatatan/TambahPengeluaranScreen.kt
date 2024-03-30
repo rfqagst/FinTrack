@@ -29,7 +29,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.fintrack.ui.components.ButtonUtama
-import com.example.fintrack.ui.components.DropDownField
+//import com.example.fintrack.ui.components.DropDownField
 import com.example.fintrack.ui.components.NormalTextField
 
 import androidx.compose.runtime.*
@@ -63,7 +63,7 @@ fun TambahPengeluaranScreen() {
                 NormalTextField(text = "Tanggal")
                 NormalTextField(text = "Transaksi Apa?")
                 NormalTextField(text = "Kategori Transaksi")
-                DropDownField(text = "Jenis Pembayaran")
+                //DropDownField(text = "Jenis Pembayaran")
                 NormalTextField(text = "Nominal Transaksi")
                 NormalTextField(text = "Keterangan Transaksi")
                 Spacer(modifier = Modifier.height(24.dp))
