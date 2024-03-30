@@ -62,7 +62,7 @@ fun HomeScreen(
         BalanceCard(
             modifier = Modifier.fillMaxWidth()
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(21.dp))
 
         Column(modifier = Modifier) {
             Row(
@@ -84,7 +84,7 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(11.dp))
             CardTabunganKondisi1(modifier = Modifier.fillMaxWidth())
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(21.dp))
 
         Column(modifier = Modifier) {
             Row(
@@ -144,7 +144,7 @@ fun HomeScreen(
             }
 
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(26.dp))
 
         Column(modifier = Modifier) {
             Row(
@@ -160,7 +160,7 @@ fun HomeScreen(
                 )
             }
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         CardTransaksi(
             modifier = Modifier.fillMaxWidth(),
@@ -170,7 +170,6 @@ fun HomeScreen(
             pembayaran = "Cash"
         )
 
-        Spacer(modifier = Modifier.height(13.dp))
         CardTransaksi(
             modifier = Modifier.fillMaxWidth(),
             image = painterResource(id = R.drawable.arrow_up),
@@ -178,7 +177,6 @@ fun HomeScreen(
             nominal = "Rp. 1.600.000",
             pembayaran = "Cash"
         )
-
 
     }
 

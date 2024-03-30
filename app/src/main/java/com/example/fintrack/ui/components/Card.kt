@@ -27,7 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.DefaultAlpha
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -143,9 +142,11 @@ fun BalanceCard(
                         fontWeight = FontWeight.Bold
                     )
                 }
+
             }
         }
     }
+
 }
 
 @Composable
@@ -260,7 +261,7 @@ fun CardTransaksi(
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFFFFFFF)
+            containerColor = Color.Transparent
         ),
         modifier = modifier,
         shape = RoundedCornerShape(7.dp)
@@ -269,7 +270,8 @@ fun CardTransaksi(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(top = 8.dp, bottom = 8.dp)
+                ,
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -316,6 +318,7 @@ fun CardTransaksi(
                     )
             )
         }
+        Image(painter = painterResource(id = R.drawable.line2), contentDescription = null)
     }
 }
 

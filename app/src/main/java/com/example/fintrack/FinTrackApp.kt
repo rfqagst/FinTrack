@@ -1,5 +1,7 @@
 package com.example.fintrack
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -17,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.fintrack.ui.navigation.BottomNavGraph
 import com.example.fintrack.ui.navigation.listofNavigationItem
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun FinTrackApp() {
     val navController = rememberNavController()
