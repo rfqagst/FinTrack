@@ -105,7 +105,8 @@ fun HomeScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f),
-                    image = painterResource(id = R.drawable.emoji)
+                    image = painterResource(id = R.drawable.emoji),
+                    title = "Investasi"
                 )
                 Spacer(modifier = Modifier.width(16.dp))
 
@@ -113,7 +114,8 @@ fun HomeScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f),
-                    image = painterResource(id = R.drawable.emoji_asuransi)
+                    image = painterResource(id = R.drawable.emoji_asuransi),
+                    title = "Asuransi"
                 )
 
             }
@@ -126,7 +128,8 @@ fun HomeScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f),
-                    image = painterResource(id = R.drawable.emoji_manajemen)
+                    image = painterResource(id = R.drawable.emoji_manajemen),
+                    title = "Manajemen"
                 )
                 Spacer(modifier = Modifier.width(16.dp))
 
@@ -134,7 +137,8 @@ fun HomeScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f),
-                    image = painterResource(id = R.drawable.emoji_pajak)
+                    image = painterResource(id = R.drawable.emoji_pajak),
+                    title = "Pajak"
                 )
 
             }

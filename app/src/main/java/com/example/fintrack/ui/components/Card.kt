@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.DefaultAlpha
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -43,103 +44,104 @@ import com.example.fintrack.R
 fun BalanceCard(
     modifier: Modifier
 ) {
-    Column(
-        modifier = Modifier
-
+    Box(
+        modifier = modifier
+            .clip(RoundedCornerShape(15.dp))
+            .background(Color(0xFF43454F))
+            .fillMaxWidth()
+            .height(150.dp)
 
     ) {
-        Box(
-            modifier = modifier
-                .clip(RoundedCornerShape(15.dp))
-                .background(Color(0xFF43454F))
-                .width(327.dp)
-                .height(150.dp)
+        Image(
+            painter = painterResource(id = R.drawable.monetization),
+            contentDescription = null,
+            modifier = Modifier
+                .align(Alignment.CenterEnd),
+            alpha = 0.25f
+        )
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
 
-        ) {
-            Column(modifier = Modifier.padding(16.dp)) {
+                ) {
+                Text(
+                    text = "Jumlah uang sekarang",
+                    style = TextStyle(
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight(400),
+                        color = Color(0xFFFFFFFF),
+
+                        )
+                )
+                Image(
+                    imageVector = Icons.Default.MoreHoriz,
+                    contentDescription = null,
+                    colorFilter = ColorFilter.tint(Color.White)
+                )
+            }
+
+            Text(
+                text = "Rp. 70.000",
+                style = TextStyle(
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight(700),
+                    color = Color(0xFFFFFFFF),
+                )
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+            Image(painter = painterResource(id = R.drawable.line), contentDescription = null)
+            Spacer(modifier = Modifier.height(16.dp))
+
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxSize(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+
+                ) {
                 Row(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-
-                    ) {
-                    Text(
-                        text = "Jumlah uang sekarang",
-                        style = TextStyle(
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight(400),
-                            color = Color(0xFFFFFFFF),
-
-                            )
-                    )
+                    modifier = Modifier,
+                ) {
                     Image(
-                        imageVector = Icons.Default.MoreHoriz,
+                        painter = painterResource(id = R.drawable.arrow_up),
                         contentDescription = null,
-                        colorFilter = ColorFilter.tint(Color.White)
+                        Modifier
+                            .padding(0.dp)
+                            .width(25.dp)
+                            .height(25.dp)
+                    )
+                    Spacer(modifier = Modifier.width(10.dp))
+                    Text(
+                        text = "Rp. 70.000",
+                        color = Color.White,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
                     )
                 }
 
-                Text(
-                    text = "Rp. 70.000",
-                    style = TextStyle(
-                        fontSize = 30.sp,
-                        fontWeight = FontWeight(700),
-                        color = Color(0xFFFFFFFF),
-                    )
-                )
-
-                Spacer(modifier = Modifier.height(16.dp))
-                Image(painter = painterResource(id = R.drawable.line), contentDescription = null)
-                Spacer(modifier = Modifier.height(16.dp))
-
-
+                Spacer(modifier = Modifier.height(5.dp))
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxSize(),
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-
-                    ) {
-                    Row(
-                        modifier = Modifier,
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.arrow_up),
-                            contentDescription = null,
-                            Modifier
-                                .padding(0.dp)
-                                .width(25.dp)
-                                .height(25.dp)
-                        )
-                        Spacer(modifier = Modifier.width(10.dp))
-                        Text(
-                            text = "Rp. 70.000",
-                            color = Color.White,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.height(5.dp))
-                    Row(
-                        modifier = Modifier
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.arrow_down),
-                            contentDescription = null,
-                            Modifier
-                                .padding(0.dp)
-                                .width(25.dp)
-                                .height(25.dp)
-                        )
-                        Spacer(modifier = Modifier.width(10.dp))
-                        Text(
-                            text = "Rp. 70.000",
-                            color = Color.White,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.arrow_down),
+                        contentDescription = null,
+                        Modifier
+                            .padding(0.dp)
+                            .width(25.dp)
+                            .height(25.dp)
+                    )
+                    Spacer(modifier = Modifier.width(10.dp))
+                    Text(
+                        text = "Rp. 70.000",
+                        color = Color.White,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
         }
@@ -149,7 +151,8 @@ fun BalanceCard(
 @Composable
 fun HomeCardEdukasi(
     modifier: Modifier,
-    image: Painter
+    image: Painter,
+    title: String
 ) {
     Card(
         colors = CardDefaults.cardColors(
@@ -180,7 +183,7 @@ fun HomeCardEdukasi(
             )
             Spacer(modifier = Modifier.width(20.dp))
             Text(
-                text = "Asuransi", style = TextStyle(
+                text = title, style = TextStyle(
                     fontSize = 18.sp,
                     fontWeight = FontWeight(600),
                     color = Color(0xFF000000),
@@ -206,18 +209,21 @@ fun CardTabunganKondisi1(
         border = BorderStroke(width = 1.dp, color = Color(0xFFD9D7DE))
     ) {
         Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier.fillMaxSize()
+            horizontalArrangement = Arrangement.Center
+
         ) {
             Image(
-                painter = painterResource(id = R.drawable.profile),
+                painter = painterResource(id = R.drawable.babi),
                 contentDescription = null,
                 Modifier
-                    .padding(0.dp)
                     .width(77.dp)
                     .height(57.dp)
             )
+            Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Text(
                     text = "Yuk, Rencanakan masa depan",
@@ -382,7 +388,7 @@ fun CardBannerTabungan() {
 fun CardPreview() {
 //    BalanceCard(modifier = Modifier)
     Surface(modifier = Modifier.fillMaxSize()) {
-        CardTabunganKondisi2(modifier = Modifier.wrapContentHeight())
+        BalanceCard(modifier = Modifier.wrapContentHeight())
     }
 
 }
