@@ -104,29 +104,39 @@ fun HomeScreen(
                 HomeCardEdukasi(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(1f)
+                        .weight(1f),
+                    image = painterResource(id = R.drawable.emoji)
                 )
                 Spacer(modifier = Modifier.width(16.dp))
+
                 HomeCardEdukasi(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(1f)
+                        .weight(1f),
+                    image = painterResource(id = R.drawable.emoji_asuransi)
                 )
+
             }
+
             Spacer(modifier = Modifier.height(16.dp))
+
 
             Row {
                 HomeCardEdukasi(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(1f)
+                        .weight(1f),
+                    image = painterResource(id = R.drawable.emoji_manajemen)
                 )
                 Spacer(modifier = Modifier.width(16.dp))
+
                 HomeCardEdukasi(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(1f)
+                        .weight(1f),
+                    image = painterResource(id = R.drawable.emoji_pajak)
                 )
+
             }
 
         }
@@ -148,9 +158,22 @@ fun HomeScreen(
         }
         Spacer(modifier = Modifier.height(16.dp))
 
-        CardTransaksi(modifier = Modifier.fillMaxWidth())
+        CardTransaksi(
+            modifier = Modifier.fillMaxWidth(),
+            image = painterResource(id = R.drawable.arrow_down),
+            title = "Tiket Konser JKT48",
+            nominal = "Rp. 600.000",
+            pembayaran = "Cash"
+        )
+
         Spacer(modifier = Modifier.height(13.dp))
-        CardTransaksi(modifier = Modifier.fillMaxWidth())
+        CardTransaksi(
+            modifier = Modifier.fillMaxWidth(),
+            image = painterResource(id = R.drawable.arrow_up),
+            title = "Gaji pertama euy",
+            nominal = "Rp. 1.600.000",
+            pembayaran = "Cash"
+        )
 
 
     }

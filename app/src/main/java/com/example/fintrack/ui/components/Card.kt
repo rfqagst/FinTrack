@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -88,14 +89,22 @@ fun BalanceCard(
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
+                Image(painter = painterResource(id = R.drawable.line), contentDescription = null)
+                Spacer(modifier = Modifier.height(16.dp))
+
+
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceAround,
-                ) {
-                    Row {
+                        .fillMaxWidth()
+                        .fillMaxSize(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+
+                    ) {
+                    Row(
+                        modifier = Modifier,
+                    ) {
                         Image(
-                            painter = painterResource(id = R.drawable.profile),
+                            painter = painterResource(id = R.drawable.arrow_up),
                             contentDescription = null,
                             Modifier
                                 .padding(0.dp)
@@ -104,7 +113,7 @@ fun BalanceCard(
                         )
                         Spacer(modifier = Modifier.width(10.dp))
                         Text(
-                            text = "Rp. 0",
+                            text = "Rp. 70.000",
                             color = Color.White,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Bold
@@ -112,9 +121,11 @@ fun BalanceCard(
                     }
 
                     Spacer(modifier = Modifier.height(5.dp))
-                    Row {
+                    Row(
+                        modifier = Modifier
+                    ) {
                         Image(
-                            painter = painterResource(id = R.drawable.profile),
+                            painter = painterResource(id = R.drawable.arrow_down),
                             contentDescription = null,
                             Modifier
                                 .padding(0.dp)
@@ -123,7 +134,7 @@ fun BalanceCard(
                         )
                         Spacer(modifier = Modifier.width(10.dp))
                         Text(
-                            text = "Rp. 0",
+                            text = "Rp. 70.000",
                             color = Color.White,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Bold
@@ -137,7 +148,8 @@ fun BalanceCard(
 
 @Composable
 fun HomeCardEdukasi(
-    modifier: Modifier
+    modifier: Modifier,
+    image: Painter
 ) {
     Card(
         colors = CardDefaults.cardColors(
@@ -159,7 +171,7 @@ fun HomeCardEdukasi(
                 .height(43.dp)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.profile),
+                painter = image,
                 contentDescription = null,
                 Modifier
                     .padding(0.dp)
@@ -238,7 +250,7 @@ fun CardTabunganKondisi1(
 
 @Composable
 fun CardTransaksi(
-    modifier: Modifier
+    modifier: Modifier, image: Painter, title: String, pembayaran: String, nominal: String
 ) {
     Card(
         colors = CardDefaults.cardColors(
@@ -257,7 +269,7 @@ fun CardTransaksi(
         ) {
             Row() {
                 Image(
-                    painter = painterResource(id = R.drawable.profile),
+                    painter = image,
                     contentDescription = null,
                     Modifier
                         .padding(0.dp)
@@ -268,7 +280,7 @@ fun CardTransaksi(
                 Spacer(modifier = Modifier.width(10.dp))
                 Column {
                     Text(
-                        text = "Tiket Konser JKT48",
+                        text = title,
                         style = TextStyle(
                             fontSize = 16.sp,
                             fontWeight = FontWeight(700),
@@ -277,7 +289,7 @@ fun CardTransaksi(
                     )
 
                     Text(
-                        text = "Cash",
+                        text = pembayaran,
                         style = TextStyle(
                             fontSize = 14.sp,
                             fontWeight = FontWeight(400),
@@ -289,7 +301,7 @@ fun CardTransaksi(
 
             }
             Text(
-                text = "Rp. 600.000",
+                text = nominal,
                 style = TextStyle(
                     fontSize = 13.sp,
                     fontWeight = FontWeight(700),
@@ -314,7 +326,7 @@ fun CardTabunganKondisi2(modifier: Modifier) {
             containerColor = Color.Transparent,
         ),
 
-    ) {
+        ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                 Text(
