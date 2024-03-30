@@ -45,14 +45,7 @@ import com.example.fintrack.ui.components.PasswordField
 import com.example.fintrack.ui.components.Plus_Jakarta_Sans
 
 @Composable
-fun LoginScreen(onLoginClicked: (username: String, password: String) -> Unit) {
-    val context = LocalContext.current
-    val focusManager = LocalFocusManager.current
-
-    // State for holding username and password
-    val usernameState = remember { mutableStateOf("") }
-    val passwordState = remember { mutableStateOf("") }
-
+fun ProfileInput() {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -71,7 +64,7 @@ fun LoginScreen(onLoginClicked: (username: String, password: String) -> Unit) {
         )
         Spacer(modifier = Modifier.height(61.dp))
         Text(
-            text = "Masuk Untuk Menuju Keuangan\nYang Lebih Baik",
+            text = "Perkenalan Untuk Menuju Keuangan\nYang Lebih Baik",
             fontFamily = Plus_Jakarta_Sans,
             fontWeight = FontWeight(600),
             fontSize = 18.sp,
@@ -83,15 +76,15 @@ fun LoginScreen(onLoginClicked: (username: String, password: String) -> Unit) {
         Column(
             modifier = Modifier
                 .width(318.dp)
-                .height(356.dp)
+                .height(324.dp)
                 .background(color = Color(0xFFF5F5F5), shape = RoundedCornerShape(size = 15.dp)),
             horizontalAlignment = Alignment.CenterHorizontally,
-//            verticalArrangement = Arrangement.Center
+            //verticalArrangement = Arrangement.Center
 //
         ) {
             Text(
-                modifier = Modifier.padding(start = 110.dp, top = 15.dp, end= 110.dp),
-                text = "Login Akun",
+                modifier = Modifier.padding(start = 84.dp, top = 15.dp, end = 84.dp),
+                text = "Tentang Kamu",
                 fontFamily = Plus_Jakarta_Sans,
                 fontWeight = FontWeight(700),
                 fontSize = 16.sp,
@@ -109,103 +102,27 @@ fun LoginScreen(onLoginClicked: (username: String, password: String) -> Unit) {
 //                NormalTextField(text = "Password")
 //            }
             Column(
-                modifier =  Modifier
+                modifier = Modifier
                     .padding(start = 14.dp, end = 14.dp)
             ) {
-                NormalTextField(text = "Email")
+                NormalTextField(text = "Apa nama panggilanmu?")
                 //  Spacer(modifier = Modifier.height(16.dp))
-                PasswordField(text = "Password")
+                NormalTextField(text = "Berapa jumlah uangmu sekarang?")
                 Spacer(modifier = Modifier.height(14.dp))
                 //NormalTextField(text = "Halo")
-                Row {
-                    Text(
-                        text = "Lupa Password?",
-                        fontFamily = Plus_Jakarta_Sans,
-                        fontWeight = FontWeight(700),
-                        fontSize = 12.sp,
-                        color = Color(0xFF121417)
-                    )
-                    Spacer(modifier = Modifier.width(2.dp))
-                    ClickableText(
-                        modifier = Modifier.padding(top = 2.dp),
-                        text = AnnotatedString("Reset Passsword"),
-                        onClick = {
-                            // Navigasi ke halaman berikutnya
-                            // Misalnya:
-                            // navController.navigate("next_page_route")
-                        },
-                        style = TextStyle(
-                            fontFamily = Plus_Jakarta_Sans,
-                            fontWeight = FontWeight(400),
-                            fontSize = 12.sp,
 
-                            color = Color(0xFF121417),
-                            textDecoration = TextDecoration.Underline
-                        )
-                    )
-
-                }
-                Spacer(modifier = Modifier.height(24.dp))
-                ButtonUtama(onClick = { /*TODO*/ }, text ="Masuk" )
-                Spacer(modifier = Modifier.height(31.dp))
+                ButtonUtama(onClick = { /*TODO*/ }, text = "Lanjut")
 
 
             }
 
 
-        }
-        Column (
-            modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-
-        ){
-            Row {
-                Text(
-                    text = "Belum punya akun?",
-                    fontFamily = Plus_Jakarta_Sans,
-                    fontWeight = FontWeight(400),
-                    fontSize = 16.sp,
-                    color = Color(0xFF696B76)
-                )
-                Spacer(modifier = Modifier.width(2.dp))
-                ClickableText(
-                    modifier = Modifier.padding(top = 2.dp),
-                    text = AnnotatedString("Daftar"),
-                    onClick = {
-                        // Navigasi ke halaman berikutnya
-                        // Misalnya:
-                        // navController.navigate("next_page_route")
-                    },
-                    style = TextStyle(
-                        fontFamily = Plus_Jakarta_Sans,
-                        fontWeight = FontWeight(700),
-                        fontSize = 16.sp,
-
-                        color = Color(0xFF696B76),
-
-                        )
-                )
-
-            }
         }
     }
-
-
-
-
-}
-@Composable
-fun LoginGraph(){
-
 }
 
 @Preview
 @Composable
-fun PreviewLoginScreen() {
-    LoginScreen(onLoginClicked = { _, _ -> })
+fun PreviewProfileInput(){
+    ProfileInput()
 }
-
-
