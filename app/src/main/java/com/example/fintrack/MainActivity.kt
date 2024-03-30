@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.example.fintrack.ui.components.CardBannerTabungan
 import com.example.fintrack.ui.screen.home.HomeScreen
 import com.example.fintrack.ui.screen.pencatatan.TambahPemasukanScreen
 import com.example.fintrack.ui.screen.pencatatan.TambahPengeluaranScreen

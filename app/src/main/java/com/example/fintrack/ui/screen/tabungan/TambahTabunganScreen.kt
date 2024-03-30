@@ -22,9 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.fintrack.ui.components.ButtonUtama
-import com.example.fintrack.ui.components.DropDownField
 import com.example.fintrack.ui.components.NormalTextField
-import com.example.fintrack.ui.screen.pencatatan.TabScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
