@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import com.example.fintrack.ui.screen.edukasi.KategoriEdukasiScreen
 import com.example.fintrack.ui.screen.home.HomeScreen
 import com.example.fintrack.ui.screen.pencatatan.TambahPengeluaranScreen
+import com.example.fintrack.ui.screen.pencatatan.TambahTransaksi
 import com.example.fintrack.ui.screen.riwayat.RiwayatPengeluaranScreen
 import com.example.fintrack.ui.screen.tabungan.ListTabunganScreen
 
@@ -25,7 +26,7 @@ fun NavGraph(navController: NavHostController, modifier: Modifier) {
             ListTabunganScreen(modifier)
         }
         composable(route = BottomBarScreen.Transaksi.route) {
-            TambahPengeluaranScreen(modifier)
+            TambahTransaksi(modifier)
         }
         composable(route = BottomBarScreen.Edukasi.route) {
             KategoriEdukasiScreen(modifier)

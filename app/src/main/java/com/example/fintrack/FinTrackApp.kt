@@ -3,9 +3,11 @@ package com.example.fintrack
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -29,6 +31,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -48,6 +51,7 @@ fun FinTrackApp() {
     val currentDestination = navBackStackEntry?.destination?.route
 
     Scaffold(
+        modifier = Modifier.fillMaxSize(),
         topBar = {
             when (currentDestination) {
                 "home" -> MainTopBar(topBarTitle = "Windah Barusadar", navController)
@@ -65,6 +69,7 @@ fun FinTrackApp() {
         }
     ) { paddingValues ->
         NavGraph(navController = navController, modifier = Modifier.padding(paddingValues))
+
     }
 }
 
@@ -74,18 +79,19 @@ fun MainBottomBar(navHostController: NavHostController) {
     val navBackStackEntry by navHostController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
 
-    NavigationBar {
+    NavigationBar(containerColor = Color.White, modifier = Modifier.border(1.dp, Color(0xFFD9D9D9))) {
         listofNavigationItem.forEachIndexed { _, item ->
             NavigationBarItem(
                 icon = {
                     Icon(
-                        imageVector = item.icon,
+                        painterResource(id = item.icon) ,
                         contentDescription = item.title,
                         tint = if (currentDestination?.hierarchy?.any { it.route == item.route } == true) {
                             Color.Green
                         } else {
                             Color.Gray
-                        }
+                        },
+                                modifier = Modifier.size(25.dp)
                     )
                 },
                 label = { Text(item.title) },
@@ -104,36 +110,41 @@ fun MainBottomBar(navHostController: NavHostController) {
 fun MainTopBar(topBarTitle: String, navHostController: NavHostController) {
 
 
-    TopAppBar(title = {
+    TopAppBar(
+        title = {
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
             Row(
-                modifier = Modifier,
-                verticalAlignment = Alignment.CenterVertically
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.profile),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(CircleShape)
-                )
-                Spacer(modifier = Modifier.width(11.dp))
-                Text(
-                    text = topBarTitle,
-                    style = TextStyle(
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight(700),
-                        color = Color(0xFF121417),
+                Row(
+                    modifier = Modifier,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.profile),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(40.dp)
+                            .clip(CircleShape)
                     )
-                )
-            }
+                    Spacer(modifier = Modifier.width(11.dp))
+                    Text(
+                        text = topBarTitle,
+                        style = TextStyle(
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight(700),
+                            color = Color(0xFF121417),
+                        )
+                    )
+                }
 
-        }
-    }, modifier = Modifier.border(width = 1.dp, color = Color(0xFFD9D9D9)))
+            }
+        },
+        modifier = Modifier
+            .border(width = 1.dp, color = Color(0xFFD9D9D9))
+            .background(Color(0xFFFFFFFF))
+    )
 }
 
 
@@ -145,11 +156,13 @@ fun SecondTopBar(title: String) {
             Text(
                 text = title,
                 style = TextStyle(
-                    fontSize = 16.sp,
+                    fontSize = 18.sp,
                     fontWeight = FontWeight(700),
                     color = Color(0xFF121417),
-                )
+                ), textAlign = TextAlign.Center,modifier = Modifier.fillMaxWidth()
+
             )
+
         },
         navigationIcon = {
             Icon(
@@ -157,6 +170,10 @@ fun SecondTopBar(title: String) {
                 contentDescription = "Back"
             )
         },
+        modifier = Modifier
+            .border(width = 1.dp, color = Color(0xFFD9D9D9))
+            .background(Color(0xFFFFFFFF))
+
     )
 }
 

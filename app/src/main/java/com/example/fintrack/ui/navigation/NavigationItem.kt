@@ -11,7 +11,7 @@ import com.example.fintrack.R
 
 data class NavigationItem(
     val title: String,
-    val icon: ImageVector,
+    val icon: Int,
     val route: String
 )
 
@@ -19,26 +19,26 @@ var listofNavigationItem = listOf(
     NavigationItem(
         route = "home",
         title = "Home",
-        icon = Icons.Outlined.Home
+        icon = R.drawable.home_icon_1
     ),
     NavigationItem(
         route = "tabungan",
         title = "Tabungan",
-        icon = Icons.Outlined.Savings
+        icon = R.drawable.tabungan_icon_1
     ),
     NavigationItem(
         route = "transaction",
         title = "Catat",
-        icon = Icons.Filled.AddCircle
+        icon = R.drawable.transaksi_icon_1
     ),
     NavigationItem(
         route = "edukasi",
         title = "Edukasi",
-        icon = Icons.Outlined.School
+        icon = R.drawable.edukasi_icon_1
     ),
     NavigationItem(
         route = "riwayat",
         title = "Riwayat",
-        icon = Icons.Outlined.History
+        icon = R.drawable.riwayat_icon_1
     ),
 )

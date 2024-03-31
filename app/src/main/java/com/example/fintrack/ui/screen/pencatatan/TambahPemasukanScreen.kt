@@ -26,27 +26,23 @@ import com.example.fintrack.ui.components.NormalTextField
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun TambahPemasukanScreen() {
-
+fun TambahPemasukanScreen(modifier: Modifier) {
     Column(
-        modifier = Modifier
+        modifier
             .padding(16.dp)
     ) {
-        ButtonUtama(onClick = { /*TODO*/ }, text = "Tambah Pemasukan")
 
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxSize()
                 .wrapContentHeight()
-                .padding(horizontal = 16.dp)
                 .clip(RoundedCornerShape(15.dp))
                 .background(color = Color(0xFFFFFFFF)),
-            contentAlignment = Alignment.Center
 
         ) {
             Column(
-                modifier = Modifier.verticalScroll(rememberScrollState()).padding(16.dp),
+                modifier = Modifier.verticalScroll(rememberScrollState())
+                    .padding(16.dp),
 
                 ) {
                 NormalTextField(text = "Tanggal")
@@ -56,7 +52,7 @@ fun TambahPemasukanScreen() {
                 NormalTextField(text = "Nominal Pendapatan")
                 NormalTextField(text = "Keterangan Pendapatan")
                 Spacer(modifier = Modifier.height(24.dp))
-                ButtonUtama(onClick = { /*TODO*/ }, text = "Tambah Pemasukan")
+                ButtonUtama(onClick = { /*TODO*/ }, text = "Tambah Pemasukan", modifier = Modifier.fillMaxWidth())
 
             }
         }
@@ -68,5 +64,5 @@ fun TambahPemasukanScreen() {
 @Composable
 @Preview(showBackground = true)
 fun PreviewTambahPemasukanScreen() {
-    TambahPemasukanScreen()
+//    TambahPemasukanScreen()
 }

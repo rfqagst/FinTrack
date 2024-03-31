@@ -361,7 +361,7 @@ fun CardTabunganKondisi2(modifier: Modifier) {
                         fontSize = 16.sp,
                         fontWeight = FontWeight(700),
                         color = Color(0xFF43454F),
-                        )
+                    )
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 Text(
@@ -394,28 +394,36 @@ fun CardBannerTabungan(modifier: Modifier) {
                 .align(Alignment.CenterEnd),
             alpha = 0.25f
         )
-        Row(modifier = Modifier.fillMaxSize(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceEvenly) {
-            Image(painter = painterResource(id = R.drawable.logobabi2), contentDescription =null, modifier = Modifier
-                .width(76.dp)
-                .height(74.dp) )
-            Spacer(modifier = Modifier.width(11.dp))
-            Column( horizontalAlignment = Alignment.End) {
+        Row(
+            modifier = Modifier.fillMaxSize(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.logobabi2),
+                contentDescription = null,
+                modifier = Modifier
+                    .width(76.dp)
+                    .height(74.dp)
+            )
+            Column(horizontalAlignment = Alignment.End) {
                 Text(
                     text = "Total Akumulasi Tabungan",
                     style = TextStyle(
-                        fontSize = 15.sp,
+                        fontSize = 18.sp,
                         fontWeight = FontWeight(700),
                         color = Color(0xFFFFFFFF),
                         textAlign = TextAlign.Center,
                     )
                 )
+                Spacer(modifier = Modifier.height(6.dp))
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
                         text = "Rp. 20.383",
                         style = TextStyle(
                             fontSize = 30.sp,
                             fontWeight = FontWeight(700),
-                            color = Color(0xFFD9D9D9),
+                            color = Color(0xFFFFFFFF),
                             textAlign = TextAlign.Center,
                         )
                     )
@@ -424,51 +432,26 @@ fun CardBannerTabungan(modifier: Modifier) {
                         style = TextStyle(
                             fontSize = 15.sp,
                             fontWeight = FontWeight(700),
-                            color = Color(0xFFD9D9D9),
+                            color = Color(0xFFFFFFFF),
                             textAlign = TextAlign.Center,
                         ),
                     )
                 }
-                Text(
-                    text = "Terakhir kali menabung\n",
-                    style = TextStyle(
-                        fontSize = 10.sp,
-                        fontWeight = FontWeight(700),
-                        color = Color(0xFFFFFFFF),
-                        textAlign = TextAlign.Right,
-                    )
-                )
-                Row {
-                    Text(
-                        text = "Macbook :",
-                        style = TextStyle(
-                            fontSize = 10.sp,
-                            fontWeight = FontWeight(400),
-                            color = Color(0xFFFFFFFF),
-                            textAlign = TextAlign.Right,
-                        )
-                    )
-                    Text(
-                        text = "12 Maret 2024",
-                        style = TextStyle(
-                            fontSize = 10.sp,
-                            fontWeight = FontWeight(400),
-                            color = Color(0xFFFFFFFF),
-                            textAlign = TextAlign.Right,
-                        )
-                    )
-                }
+
+                Spacer(modifier = Modifier.height(6.dp))
             }
+
         }
     }
 }
 
-    @Composable
-    @Preview(showBackground = true)
-    fun CardPreview() {
-//    BalanceCard(modifier = Modifier)
-        Surface(modifier = Modifier.fillMaxSize()) {
-            CardBannerTabungan(modifier = Modifier.wrapContentHeight())
-        }
 
+@Composable
+@Preview(showBackground = true)
+fun CardPreview() {
+//    BalanceCard(modifier = Modifier)
+    Surface(modifier = Modifier.fillMaxSize()) {
+        CardBannerTabungan(modifier = Modifier.wrapContentHeight())
     }
+
+}

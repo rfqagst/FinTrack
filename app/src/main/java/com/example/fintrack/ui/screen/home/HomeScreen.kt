@@ -35,9 +35,7 @@ import com.example.fintrack.ui.components.HomeCardEdukasi
 fun HomeScreen(modifier: Modifier) {
 
     Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(16.dp)
+        modifier.padding(16.dp)
     ) {
 
         BalanceCard(

@@ -22,6 +22,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -42,18 +43,22 @@ fun NormalTextField(
         }
         Text(text = text, fontFamily = Plus_Jakarta_Sans,
             fontWeight = FontWeight(700),
-            fontSize = 14.sp,
+            fontSize = 16.sp,
             color = Color(0xFF121417))
         Spacer(modifier = Modifier.height(6.dp))
         OutlinedTextField(
-
             value = normalText,
+            textStyle = TextStyle(
+                fontSize = 16.sp,
+                fontWeight = FontWeight(400),
+                color = Color(0xFF121417),
+                ),
             onValueChange = {
                 normalText = it
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(45.dp)
+
             ,
             colors = OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = Color(0xFF1BE063),

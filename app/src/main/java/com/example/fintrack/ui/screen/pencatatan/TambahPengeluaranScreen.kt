@@ -41,17 +41,13 @@ fun TambahPengeluaranScreen(modifier: Modifier) {
     Column(
         modifier
             .padding(16.dp)
-            .fillMaxSize(),
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxSize()
                 .wrapContentHeight()
-                .padding(horizontal = 16.dp)
                 .clip(RoundedCornerShape(15.dp))
                 .background(color = Color(0xFFFFFFFF)),
-            contentAlignment = Alignment.Center
 
         ) {
             Column(
@@ -63,11 +59,11 @@ fun TambahPengeluaranScreen(modifier: Modifier) {
                 NormalTextField(text = "Tanggal")
                 NormalTextField(text = "Transaksi Apa?")
                 NormalTextField(text = "Kategori Transaksi")
-                //DropDownField(text = "Jenis Pembayaran")
+                NormalTextField(text = "Jenis Pembayaran")
                 NormalTextField(text = "Nominal Transaksi")
                 NormalTextField(text = "Keterangan Transaksi")
                 Spacer(modifier = Modifier.height(24.dp))
-                ButtonUtama(onClick = { /*TODO*/ }, text = "Tambah Pengeluaran")
+                ButtonUtama(onClick = { /*TODO*/ }, text = "Tambah Pengeluaran", modifier = Modifier.fillMaxWidth())
 
             }
         }
@@ -77,30 +73,7 @@ fun TambahPengeluaranScreen(modifier: Modifier) {
 }
 
 
-//@RequiresApi(Build.VERSION_CODES.O)
-//@Composable
-//fun TabScreen() {
-//    var tabIndex by remember { mutableStateOf(0) }
-//
-//    val tabs = listOf("Pemasukan", "Pengeluaran")
-//
-//    Column(modifier = Modifier.fillMaxWidth()) {
-//        TabRow(selectedTabIndex = tabIndex) {
-//            tabs.forEachIndexed { index, title ->
-//                Tab(
-//                    text = { Text(title) },
-//                    selected = tabIndex == index,
-//                    onClick = { tabIndex = index }
-//                )
-//            }
-//        }
-//        when (tabIndex) {
-//            0 -> TambahPengeluaranScreen(modifier = )
-//            1 -> TambahPemasukanScreen()
-//            else -> {} // Handle other cases, if any
-//        }
-//    }
-//}
+
 
 
 @RequiresApi(Build.VERSION_CODES.O)

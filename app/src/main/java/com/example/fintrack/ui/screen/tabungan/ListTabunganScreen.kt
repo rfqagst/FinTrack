@@ -26,18 +26,18 @@ import com.example.fintrack.ui.components.CardTabunganKondisi2
 fun ListTabunganScreen(modifier: Modifier) {
     Column(modifier.padding(16.dp)) {
         CardBannerTabungan(modifier = Modifier.fillMaxWidth())
-        Spacer(modifier = Modifier.height(26.dp))
+        Spacer(modifier = Modifier.height(21.dp))
         Image(painter = painterResource(id = R.drawable.line2), contentDescription = null, modifier = Modifier.fillMaxWidth())
-        Spacer(modifier = Modifier.height(26.dp))
+        Spacer(modifier = Modifier.height(21.dp))
         Text(
             text = "List Tabungan Aktif",
             style = TextStyle(
-                fontSize = 15.sp,
+                fontSize = 18.sp,
                 fontWeight = FontWeight(700),
                 color = Color(0xFF000000),
             )
         )
-        Spacer(modifier = Modifier.height(21.dp))
+        Spacer(modifier = Modifier.height(18.dp))
         CardTabunganKondisi2(modifier = Modifier.fillMaxWidth())
     }
 
