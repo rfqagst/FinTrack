@@ -25,8 +25,7 @@ fun ButtonUtama(
         onClick = onClick,
         modifier = modifier
             .padding(vertical = 8.dp)
-            .height(50.dp)
-            .fillMaxWidth(),
+            .height(50.dp),
         shape = RoundedCornerShape(15.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = Color(0xFF1BE564), // Atur warna latar belakang

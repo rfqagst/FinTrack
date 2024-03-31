@@ -32,32 +32,13 @@ import com.example.fintrack.ui.components.HomeCardEdukasi
 
 
 @Composable
-fun HomeScreen(
-) {
+fun HomeScreen(modifier: Modifier) {
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.profile),
-                contentDescription = "Profile Image",
-                modifier = Modifier
-                    .size(50.dp)
-                    .clip(CircleShape)
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Column(modifier = Modifier, verticalArrangement = Arrangement.Center) {
-                Text(text = "Bonjou", fontSize = 18.sp)
-                Text(text = "Rifqi Agustia", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-            }
-        }
-        Spacer(modifier = Modifier.height(31.dp))
 
         BalanceCard(
             modifier = Modifier.fillMaxWidth()
@@ -187,5 +168,5 @@ fun HomeScreen(
 @Preview(showBackground = true)
 @Composable
 fun PreviewHomeScreen() {
-    HomeScreen()
+    HomeScreen(modifier = Modifier)
 }

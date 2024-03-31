@@ -16,22 +16,22 @@ import com.example.fintrack.ui.screen.tabungan.ListTabunganScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun BottomNavGraph(navController: NavHostController,modifier: Modifier) {
+fun NavGraph(navController: NavHostController, modifier: Modifier) {
     NavHost(navController = navController, startDestination = BottomBarScreen.Home.route) {
         composable(route = BottomBarScreen.Home.route) {
-            HomeScreen()
+            HomeScreen(modifier)
         }
         composable(route = BottomBarScreen.Tabungan.route) {
-            ListTabunganScreen()
+            ListTabunganScreen(modifier)
         }
         composable(route = BottomBarScreen.Transaksi.route) {
-            TambahPengeluaranScreen()
+            TambahPengeluaranScreen(modifier)
         }
         composable(route = BottomBarScreen.Edukasi.route) {
-            KategoriEdukasiScreen()
+            KategoriEdukasiScreen(modifier)
         }
         composable(route = BottomBarScreen.Riwayat.route) {
-            RiwayatPengeluaranScreen()
+            RiwayatPengeluaranScreen(modifier)
         }
     }
 }

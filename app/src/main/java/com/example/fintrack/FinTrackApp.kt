@@ -2,22 +2,41 @@ package com.example.fintrack
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.fintrack.ui.navigation.BottomNavGraph
+import com.example.fintrack.ui.navigation.NavGraph
 import com.example.fintrack.ui.navigation.listofNavigationItem
+import com.example.fintrack.ui.theme.FinTrackTheme
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -25,16 +44,17 @@ fun FinTrackApp() {
     val navController = rememberNavController()
 
     Scaffold(
+        topBar = { MainTopBar(topBarTitle = "Windah Batubara") },
         bottomBar = {
-            BottomBar(navHostController = navController)
+            MainBottomBar(navHostController = navController)
         }
     ) { paddingValues ->
-        BottomNavGraph(navController = navController, modifier = Modifier.padding(paddingValues))
+        NavGraph(navController = navController, modifier = Modifier.padding(paddingValues))
     }
 }
 
 @Composable
-fun BottomBar(navHostController: NavHostController) {
+fun MainBottomBar(navHostController: NavHostController) {
 
     val navBackStackEntry by navHostController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
@@ -61,5 +81,48 @@ fun BottomBar(navHostController: NavHostController) {
             )
 
         }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MainTopBar(topBarTitle: String) {
+    TopAppBar(title = {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Row(
+                modifier = Modifier,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.profile),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(CircleShape)
+                )
+                Spacer(modifier = Modifier.width(11.dp))
+                Text(
+                    text = topBarTitle,
+                    style = TextStyle(
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight(700),
+                        color = Color(0xFF121417),
+                    )
+                )
+            }
+
+        }
+    }, modifier = Modifier.border(width = 1.dp, color = Color(0xFFD9D9D9)))
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun Preview() {
+    FinTrackTheme {
+        MainTopBar(topBarTitle = "Windah Batubara")
     }
 }

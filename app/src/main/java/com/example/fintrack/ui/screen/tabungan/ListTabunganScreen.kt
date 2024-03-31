@@ -23,8 +23,8 @@ import androidx.compose.ui.text.*
 import com.example.fintrack.ui.components.CardTabunganKondisi2
 
 @Composable
-fun ListTabunganScreen() {
-    Column(Modifier.padding(16.dp)) {
+fun ListTabunganScreen(modifier: Modifier) {
+    Column(modifier.padding(16.dp)) {
         CardBannerTabungan(modifier = Modifier.fillMaxWidth())
         Spacer(modifier = Modifier.height(26.dp))
         Image(painter = painterResource(id = R.drawable.line2), contentDescription = null, modifier = Modifier.fillMaxWidth())

@@ -37,9 +37,9 @@ import androidx.compose.ui.Alignment
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun TambahPengeluaranScreen() {
+fun TambahPengeluaranScreen(modifier: Modifier) {
     Column(
-        modifier = Modifier
+        modifier
             .padding(16.dp)
             .fillMaxSize(),
     ) {
@@ -77,35 +77,35 @@ fun TambahPengeluaranScreen() {
 }
 
 
-@RequiresApi(Build.VERSION_CODES.O)
-@Composable
-fun TabScreen() {
-    var tabIndex by remember { mutableStateOf(0) }
-
-    val tabs = listOf("Pemasukan", "Pengeluaran")
-
-    Column(modifier = Modifier.fillMaxWidth()) {
-        TabRow(selectedTabIndex = tabIndex) {
-            tabs.forEachIndexed { index, title ->
-                Tab(
-                    text = { Text(title) },
-                    selected = tabIndex == index,
-                    onClick = { tabIndex = index }
-                )
-            }
-        }
-        when (tabIndex) {
-            0 -> TambahPengeluaranScreen()
-            1 -> TambahPemasukanScreen()
-            else -> {} // Handle other cases, if any
-        }
-    }
-}
+//@RequiresApi(Build.VERSION_CODES.O)
+//@Composable
+//fun TabScreen() {
+//    var tabIndex by remember { mutableStateOf(0) }
+//
+//    val tabs = listOf("Pemasukan", "Pengeluaran")
+//
+//    Column(modifier = Modifier.fillMaxWidth()) {
+//        TabRow(selectedTabIndex = tabIndex) {
+//            tabs.forEachIndexed { index, title ->
+//                Tab(
+//                    text = { Text(title) },
+//                    selected = tabIndex == index,
+//                    onClick = { tabIndex = index }
+//                )
+//            }
+//        }
+//        when (tabIndex) {
+//            0 -> TambahPengeluaranScreen(modifier = )
+//            1 -> TambahPemasukanScreen()
+//            else -> {} // Handle other cases, if any
+//        }
+//    }
+//}
 
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 @Preview(showBackground = true)
 fun PreviewTambah() {
-    TabScreen()
+//    TabScreen(modifier = Modifier)
 }
