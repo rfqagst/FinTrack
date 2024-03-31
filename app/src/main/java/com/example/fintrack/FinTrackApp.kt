@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -42,9 +44,22 @@ import com.example.fintrack.ui.theme.FinTrackTheme
 @Composable
 fun FinTrackApp() {
     val navController = rememberNavController()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination?.route
 
     Scaffold(
-        topBar = { MainTopBar(topBarTitle = "Windah Batubara") },
+        topBar = {
+            when (currentDestination) {
+                "home" -> MainTopBar(topBarTitle = "Windah Barusadar", navController)
+                "tabungan" -> SecondTopBar(title = "Tabungan")
+                "transaction" -> SecondTopBar(title = "Tambah Transaksi")
+                "edukasi" -> SecondTopBar(title = "Edukasi Keuangan")
+                "riwayat" -> SecondTopBar(title = "Riwayat Transaksi")
+                else -> SecondTopBar(title = "")
+
+
+            }
+        },
         bottomBar = {
             MainBottomBar(navHostController = navController)
         }
@@ -86,8 +101,11 @@ fun MainBottomBar(navHostController: NavHostController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainTopBar(topBarTitle: String) {
+fun MainTopBar(topBarTitle: String, navHostController: NavHostController) {
+
+
     TopAppBar(title = {
+
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -119,10 +137,34 @@ fun MainTopBar(topBarTitle: String) {
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SecondTopBar(title: String) {
+    TopAppBar(
+        title = {
+            Text(
+                text = title,
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight(700),
+                    color = Color(0xFF121417),
+                )
+            )
+        },
+        navigationIcon = {
+            Icon(
+                imageVector = Icons.Default.ArrowBack,
+                contentDescription = "Back"
+            )
+        },
+    )
+}
+
+
 @Preview(showBackground = true)
 @Composable
 fun Preview() {
     FinTrackTheme {
-        MainTopBar(topBarTitle = "Windah Batubara")
+//        MainTopBar(topBarTitle = "Windah Batubara")
     }
 }
