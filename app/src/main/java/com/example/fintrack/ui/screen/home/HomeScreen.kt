@@ -50,11 +50,11 @@ fun HomeScreen(modifier: Modifier) {
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 Text(
-                    text = "Tabungan", fontSize = 18.sp, fontWeight = FontWeight(700),
+                    text = "Tabungan", fontSize = 21.sp, fontWeight = FontWeight(700),
                     color = Color(0xFF121417)
                 )
                 Text(
-                    text = "Lihat Semua", fontSize = 14.sp,
+                    text = "Semua", fontSize = 16.sp,
                     color = Color(0xFF07993C),
                     textDecoration = TextDecoration.Underline,
                     fontWeight = FontWeight(700)
@@ -71,9 +71,9 @@ fun HomeScreen(modifier: Modifier) {
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(text = "Edukasi", fontSize = 18.sp, fontWeight = FontWeight(700))
+                Text(text = "Edukasi", fontSize = 21.sp, fontWeight = FontWeight(700))
                 Text(
-                    text = "Lihat Semua", fontSize = 14.sp, color = Color(0xFF07993C),
+                    text = "Semua", fontSize = 16.sp, color = Color(0xFF07993C),
                     textDecoration = TextDecoration.Underline,
                     fontWeight = FontWeight(700)
                 )
@@ -131,9 +131,9 @@ fun HomeScreen(modifier: Modifier) {
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(text = "Transaksi Terakhir", fontSize = 18.sp, fontWeight = FontWeight(700))
+                Text(text = "Transaksi Terakhir", fontSize = 21.sp, fontWeight = FontWeight(700))
                 Text(
-                    text = "Lihat Semua", fontSize = 14.sp, color = Color(0xFF07993C),
+                    text = "Semua", fontSize = 16.sp, color = Color(0xFF07993C),
                     textDecoration = TextDecoration.Underline,
                     fontWeight = FontWeight(700)
                 )

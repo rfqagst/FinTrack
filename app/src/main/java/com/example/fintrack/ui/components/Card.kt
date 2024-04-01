@@ -13,13 +13,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,6 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fintrack.R
+import com.example.fintrack.ui.theme.FinTrackTheme
 
 
 @Composable
@@ -280,8 +279,8 @@ fun CardTransaksi(
                     contentDescription = null,
                     Modifier
                         .padding(0.dp)
-                        .width(30.dp)
-                        .height(30.dp)
+                        .width(35.dp)
+                        .height(35.dp)
                 )
 
                 Spacer(modifier = Modifier.width(10.dp))
@@ -289,7 +288,7 @@ fun CardTransaksi(
                     Text(
                         text = title,
                         style = TextStyle(
-                            fontSize = 16.sp,
+                            fontSize = 18.sp,
                             fontWeight = FontWeight(700),
                             color = Color(0xFF121417),
                         )
@@ -298,7 +297,7 @@ fun CardTransaksi(
                     Text(
                         text = pembayaran,
                         style = TextStyle(
-                            fontSize = 14.sp,
+                            fontSize = 16.sp,
                             fontWeight = FontWeight(400),
                             color = Color(0xFF121417),
 
@@ -310,7 +309,7 @@ fun CardTransaksi(
             Text(
                 text = nominal,
                 style = TextStyle(
-                    fontSize = 13.sp,
+                    fontSize = 16.sp,
                     fontWeight = FontWeight(700),
                     color = Color(0xFFD83535),
 
@@ -445,13 +444,44 @@ fun CardBannerTabungan(modifier: Modifier) {
     }
 }
 
+@Composable
+fun CardMainEdukasi(modifier: Modifier, image: Painter, teks : String) {
+    Column(
+        modifier
+            .clip(RoundedCornerShape(10.dp))
+    ) {
+        Image(
+            painter = image,
+            contentDescription = null,
+        )
+        Box(
+            modifier = Modifier
+                .background(Color.White)
+                .clip(RoundedCornerShape(5.dp))
+        ) {
+            Text(
+                text = teks,
+                style = TextStyle(
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight(500),
+                    color = Color(0xFF121417),
+                    ),
+                maxLines = 2,
+                modifier = Modifier.padding(5.dp)
+            )
+        }
+    }
+}
 
 @Composable
 @Preview(showBackground = true)
 fun CardPreview() {
 //    BalanceCard(modifier = Modifier)
-    Surface(modifier = Modifier.fillMaxSize()) {
-        CardBannerTabungan(modifier = Modifier.wrapContentHeight())
+    FinTrackTheme() {
+//        CardMainEdukasi(
+//            image = painterResource(id = R.drawable.asuransi_image),
+//            modifier = Modifier
+//        )
     }
 
 }
