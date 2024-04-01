@@ -147,6 +147,7 @@ fun HomeScreen(modifier: Modifier) {
             title = "Tiket Konser JKT48",
             nominal = "Rp. 600.000",
             pembayaran = "Cash"
+            , colorNominal = 0xFFD83535
         )
 
         CardTransaksi(
@@ -154,7 +155,8 @@ fun HomeScreen(modifier: Modifier) {
             image = painterResource(id = R.drawable.arrow_up),
             title = "Gaji pertama euy",
             nominal = "Rp. 1.600.000",
-            pembayaran = "Cash"
+            pembayaran = "Cash",
+            colorNominal = 0xFF07993C
         )
 
     }

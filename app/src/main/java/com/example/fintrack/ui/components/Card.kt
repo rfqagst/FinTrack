@@ -256,7 +256,7 @@ fun CardTabunganKondisi1(
 
 @Composable
 fun CardTransaksi(
-    modifier: Modifier, image: Painter, title: String, pembayaran: String, nominal: String
+    modifier: Modifier, image: Painter, title: String, pembayaran: String, nominal: String, colorNominal : Long
 ) {
     Card(
         colors = CardDefaults.cardColors(
@@ -311,8 +311,7 @@ fun CardTransaksi(
                 style = TextStyle(
                     fontSize = 16.sp,
                     fontWeight = FontWeight(700),
-                    color = Color(0xFFD83535),
-
+                    color = Color(colorNominal),
                     )
             )
         }

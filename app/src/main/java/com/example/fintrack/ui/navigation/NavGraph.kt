@@ -12,6 +12,7 @@ import com.example.fintrack.ui.screen.home.HomeScreen
 import com.example.fintrack.ui.screen.pencatatan.TambahPengeluaranScreen
 import com.example.fintrack.ui.screen.pencatatan.TambahTransaksi
 import com.example.fintrack.ui.screen.riwayat.RiwayatPengeluaranScreen
+import com.example.fintrack.ui.screen.riwayat.RiwayatTransaksi
 import com.example.fintrack.ui.screen.tabungan.ListTabunganScreen
 
 
@@ -32,7 +33,7 @@ fun NavGraph(navController: NavHostController, modifier: Modifier) {
             KategoriEdukasiScreen(modifier)
         }
         composable(route = BottomBarScreen.Riwayat.route) {
-            RiwayatPengeluaranScreen(modifier)
+            RiwayatTransaksi(modifier)
         }
     }
 }
