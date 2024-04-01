@@ -13,11 +13,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fintrack.R
+import com.example.fintrack.ui.components.CardRiwayat
 import com.example.fintrack.ui.components.CardTransaksi
 
 @Composable
 fun RiwayatPengeluaranScreen(modifier: Modifier) {
     Column(modifier.padding(16.dp)) {
+        CardRiwayat()
+        Spacer(modifier = Modifier.height(21.dp))
         Text(text = "Transaksi Terakhir", fontSize = 21.sp, fontWeight = FontWeight(700))
         Spacer(modifier = Modifier.height(8.dp))
         CardTransaksi(
@@ -31,7 +34,7 @@ fun RiwayatPengeluaranScreen(modifier: Modifier) {
         CardTransaksi(
             modifier = Modifier.fillMaxWidth(),
             image = painterResource(id = R.drawable.arrow_down),
-            title = "dipalak Rehan",
+            title = "dipalak zaki",
             nominal = "Rp. 50.000",
             pembayaran = "Cash"
             , colorNominal = 0xFFD83535

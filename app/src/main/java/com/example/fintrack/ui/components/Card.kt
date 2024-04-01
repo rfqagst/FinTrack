@@ -3,6 +3,7 @@ package com.example.fintrack.ui.components
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,9 +16,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -256,7 +259,12 @@ fun CardTabunganKondisi1(
 
 @Composable
 fun CardTransaksi(
-    modifier: Modifier, image: Painter, title: String, pembayaran: String, nominal: String, colorNominal : Long
+    modifier: Modifier,
+    image: Painter,
+    title: String,
+    pembayaran: String,
+    nominal: String,
+    colorNominal: Long
 ) {
     Card(
         colors = CardDefaults.cardColors(
@@ -312,7 +320,7 @@ fun CardTransaksi(
                     fontSize = 16.sp,
                     fontWeight = FontWeight(700),
                     color = Color(colorNominal),
-                    )
+                )
             )
         }
         Image(painter = painterResource(id = R.drawable.line2), contentDescription = null)
@@ -444,7 +452,7 @@ fun CardBannerTabungan(modifier: Modifier) {
 }
 
 @Composable
-fun CardMainEdukasi(modifier: Modifier, image: Painter, teks : String) {
+fun CardMainEdukasi(modifier: Modifier, image: Painter, teks: String) {
     Column(
         modifier
             .clip(RoundedCornerShape(10.dp))
@@ -464,7 +472,7 @@ fun CardMainEdukasi(modifier: Modifier, image: Painter, teks : String) {
                     fontSize = 18.sp,
                     fontWeight = FontWeight(500),
                     color = Color(0xFF121417),
-                    ),
+                ),
                 maxLines = 2,
                 modifier = Modifier.padding(5.dp)
             )
@@ -472,15 +480,54 @@ fun CardMainEdukasi(modifier: Modifier, image: Painter, teks : String) {
     }
 }
 
+
+@Composable
+fun CardRiwayat() {
+    Column(
+        modifier = Modifier
+            .background(color = Color.White)
+            .border(
+                width = 1.dp,
+                color = Color(0xFFBEBEBE),
+                shape = RoundedCornerShape(size = 15.dp)
+            )
+            .height(200.dp)
+
+    ) {
+        Row(modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                text = "Pemasukan",
+                style = TextStyle(
+                    fontSize = 21.sp,
+                    fontWeight = FontWeight(700),
+                    color = Color(0xFF43454F),
+                )
+            )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = "Bulanan",
+                    style = TextStyle(
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight(700),
+                        color = Color(0xFF07993C),
+                    )
+                )
+                Icon(imageVector = Icons.Default.KeyboardArrowDown, contentDescription = null)
+            }
+
+        }
+    }
+}
+
+
 @Composable
 @Preview(showBackground = true)
 fun CardPreview() {
 //    BalanceCard(modifier = Modifier)
     FinTrackTheme() {
-//        CardMainEdukasi(
-//            image = painterResource(id = R.drawable.asuransi_image),
-//            modifier = Modifier
-//        )
+        CardRiwayat()
     }
 
 }
